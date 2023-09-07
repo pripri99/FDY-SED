@@ -27,6 +27,7 @@ def main(iteration=None):
     parser.add_argument('--gpu', default=0, type=int, help='selection of gpu when you run separate trainings on single server')
     parser.add_argument('--multigpu', default=False, type=bool)
     #args = parser.parse_args()
+    print(args)
     args = parser.parse_args(args=[arg for arg in sys.argv if not arg.startswith('-f')])
 
     #set configurations
