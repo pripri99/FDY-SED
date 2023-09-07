@@ -1,5 +1,6 @@
 #Some codes are adopted from https://github.com/DCASE-REPO/DESED_task
 #Paper describing this code is on https://arxiv.org/abs/2107.03649
+import sys
 import torch
 import torch.optim as optim
 import torch.nn as nn
@@ -25,7 +26,8 @@ def main(iteration=None):
     parser = argparse.ArgumentParser(description="hyperparameters")
     parser.add_argument('--gpu', default=0, type=int, help='selection of gpu when you run separate trainings on single server')
     parser.add_argument('--multigpu', default=False, type=bool)
-    args = parser.parse_args()
+    #args = parser.parse_args()
+    args = parser.parse_args(args=[arg for arg in sys.argv if not arg.startswith('-f')])
 
     #set configurations
     configs, server_cfg, train_cfg, feature_cfg = get_configs(config_dir="./configs/config.yaml")
