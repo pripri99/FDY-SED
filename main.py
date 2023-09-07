@@ -22,7 +22,7 @@ from utils.evaluation_measures import compute_per_intersection_macro_f1, compute
 
 class HardcodedArgs:
     def __init__(self):
-        self.gpu = 1             # Replace 0 with your desired default value
+        self.gpu = 0             # Replace 0 with your desired default value
         self.multigpu = False   # Replace False with your desired default value
 
 def main(iteration=None):
