@@ -20,6 +20,10 @@ from utils.settings import *
 from utils.data_aug import *
 from utils.evaluation_measures import compute_per_intersection_macro_f1, compute_psds_from_operating_points
 
+class HardcodedArgs:
+    def __init__(self):
+        self.gpu = 1             # Replace 0 with your desired default value
+        self.multigpu = False   # Replace False with your desired default value
 
 def main(iteration=None):
     print("="*50 + "start!!!!" + "="*50)
@@ -27,8 +31,7 @@ def main(iteration=None):
     parser.add_argument('--gpu', default=0, type=int, help='selection of gpu when you run separate trainings on single server')
     parser.add_argument('--multigpu', default=False, type=bool)
     #args = parser.parse_args()
-    print(args)
-    args = parser.parse_args(args=[arg for arg in sys.argv if not arg.startswith('-f')])
+    args = HardcodedArgs()
 
     #set configurations
     configs, server_cfg, train_cfg, feature_cfg = get_configs(config_dir="./configs/config.yaml")
